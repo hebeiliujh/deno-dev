@@ -1,12 +1,14 @@
-function handleRequest(request) {
+function handleRequest(event) {
+  const { request } = event;
   const { pathname } = new URL(request.url);
 
-  const ip = event.request.headers.get('x-forwarded-for');
-  // <head>
-  //   <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
-  // </head>
+  const ip = request.headers.get('x-forwarded-for');
+  
   return new Response(
-    `<body
+    `<head>
+      <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
+    </head>
+    <body
       align="center"
       style="font-family: Avenir, Helvetica, Arial, sans-serif; font-size: 1.5rem;"
     >
@@ -73,5 +75,5 @@ function handleRequest(request) {
 }
 
 addEventListener('fetch', (event) => {
-  event.respondWith(handleRequest(event.request));
+  event.respondWith(handleRequest(event));
 });
