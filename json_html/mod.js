@@ -2,15 +2,15 @@ function handleRequest(request) {
   const { pathname } = new URL(request.url);
 
   const ip = event.request.headers.get('x-forwarded-for');
-
+  // <head>
+  //   <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
+  // </head>
   return new Response(
-    `<head>
-      <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
-    </head>
-    <body
+    `<body
       align="center"
       style="font-family: Avenir, Helvetica, Arial, sans-serif; font-size: 1.5rem;"
     >
+      <img src="/static/favicon.ico" />
       <h1>欢迎</h1>
       <p>您当前的IP地址是：${ip}</p>
     </body>`,
