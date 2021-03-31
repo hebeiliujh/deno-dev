@@ -12,7 +12,6 @@ function handleRequest(event) {
       align="center"
       style="font-family: Avenir, Helvetica, Arial, sans-serif; font-size: 1.5rem;"
     >
-      <img src="/static/favicon.ico" />
       <h1>欢迎</h1>
       <p>您当前的IP地址是：${ip}</p>
     </body>`,
